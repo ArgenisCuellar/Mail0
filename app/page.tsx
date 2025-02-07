@@ -1,7 +1,6 @@
 import { cookies } from "next/headers";
 
-import { accounts, mails } from "@/components/mail/data";
-import { Mail } from "@/components/mail/mail";
+import { MailWrapper } from "@/components/mail/mail-wrapper";
 
 export default async function MailPage() {
   const cookieStore = await cookies();
@@ -14,13 +13,7 @@ export default async function MailPage() {
   return (
     <div className="w-full bg-white dark:bg-background">
       <div className="flex-col dark:text-gray-100 md:flex">
-        <Mail
-          accounts={accounts}
-          mails={mails}
-          defaultLayout={defaultLayout}
-          defaultCollapsed={defaultCollapsed}
-          navCollapsedSize={4}
-        />
+        <MailWrapper defaultLayout={defaultLayout} defaultCollapsed={defaultCollapsed} />
       </div>
     </div>
   );
